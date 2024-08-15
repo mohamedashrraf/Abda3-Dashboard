@@ -1,0 +1,55 @@
+<div class="grid-container mt-4 user-list-container">
+  <h2 class="text-center mb-4">User List</h2>
+
+  <!-- Search bar -->
+  <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control search-bar"
+      placeholder="Search by name or email..."
+      [(ngModel)]="searchQuery"
+      (input)="searchUsers()"
+    />
+  </div>
+
+  <div class="grid-x grid-padding-x">
+    <div class="cell small-12">
+      <table class="table table-striped p-5 user-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th (click)="sortUsers('name')" class="sortable-column">Name</th>
+            <th (click)="sortUsers('email')" class="sortable-column">Email</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers; let i = index" (click)="viewProfile(user)">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'badge-success': user.active,
+                  'badge-secondary': !user.active
+                }"
+              >
+                {{ user.active ? "Active" : "Inactive" }}
+              </span>
+            </td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="editUser(user)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Delete</button>
+              <button class="btn btn-outline-secondary btn-sm" (click)="toggleActivation(user)">
+                {{ user.active ? "Deactivate" : "Activate" }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,10 @@
+# Notices 
+- sort Items applied when you click on item Column
+- filter items applied on name and email
+
+# Tools that I used
+Angular Material - Faundation - Bootstrap - NgRx
+
 # App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.

@@ -1,0 +1,33 @@
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item {
+  border: none;
+  padding: 1.25rem;
+  font-size: 1rem;
+}
+
+.btn {
+  margin-top: 20px;
+}
+
+.badge {
+  padding: 0.5em;
+  font-size: 0.875em;
+}
+
+.grid-container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.user-profile {
+  .mat-card {
+    margin: 20px;
+    padding: 20px;
+  }
+}
