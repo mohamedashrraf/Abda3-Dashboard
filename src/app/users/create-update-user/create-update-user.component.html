@@ -22,7 +22,7 @@
 
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input
+        <!-- <input
           type="email"
           id="email"
           formControlName="email"
@@ -30,7 +30,7 @@
           placeholder="Enter user email"
   [class.is-invalid]="userForm?.get('email')?.invalid && userForm?.get('email')?.touched"
           required
-        />
+        /> -->
         @if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
         <div class="invalid-feedback">
           A valid email is required.

@@ -31,6 +31,8 @@ login(field: string, password: string): Observable<any> {
   }
 storeToken(token: string): void {
   localStorage.setItem('authToken', token);
-}
+  }
+
+  
 
 }

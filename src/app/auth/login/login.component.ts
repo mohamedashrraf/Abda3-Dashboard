@@ -26,9 +26,9 @@ export class LoginComponent {
     private store: Store,
     private router: Router
   ) {
-    this.loginForm = this.fb.group({
-      field: ['', Validators.required],
-      password: ['', Validators.required],
+   this.loginForm = this.fb.group({
+      field: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]], 
     });
   }
 
@@ -41,5 +41,5 @@ export class LoginComponent {
     }
   }
 
-  
+
 }

@@ -3,16 +3,27 @@
     <h2 class="text-center mb-4">Login</h2>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
-        <label for="field" class="form-label">Username</label>
+        <label for="field" class="form-label">Email</label>
         <input
           type="text"
           id="field"
           formControlName="field"
           class="form-control"
-          placeholder="Enter your username"
+          placeholder="Enter your email"
           required
         />
+        @if (loginForm.get('field')?.touched && loginForm.get('field')?.invalid) {
+        <div class="text-danger">
+          @if (loginForm.get('field')?.errors?.['required']) {
+          <small>Email is required.</small>
+        }
+        @if (loginForm.get('field')?.errors?.['email']) {
+          <small>Please enter a valid email.</small>
+        }
+        </div>
+      }
       </div>
+
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input
@@ -23,7 +34,18 @@
           placeholder="Enter your password"
           required
         />
+        @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+        <div class="text-danger">
+          @if (loginForm.get('password')?.errors?.['required']) {
+          <small>Password is required.</small>
+          }
+          @if (loginForm.get('password')?.errors?.['minlength']) {
+          <small>Password must be at least 8 characters long.</small>
+          }
+        </div>
+      }
       </div>
+
       <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
       @if (loginError) {
       <p class="text-danger mt-2" [@fadeIn]>{{ loginError }}</p>
