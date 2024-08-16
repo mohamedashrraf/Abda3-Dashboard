@@ -1,4 +1,3 @@
-// src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -33,6 +32,6 @@ storeToken(token: string): void {
   localStorage.setItem('authToken', token);
   }
 
-  
+
 
 }
