@@ -12,7 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { authReducer } from './auth/store/auth.reducer';
 import { AuthEffects } from './auth/store/auth.effects';
-import { AuthInterceptorService } from './services/auth-interceptor.service'; // Import the interceptor service
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,13 +21,13 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(
       withFetch(),
-      withInterceptorsFromDi() // Add this line to register interceptors from DI
+      withInterceptorsFromDi()
     ),
     importProvidersFrom(
       ReactiveFormsModule,
-      StoreModule.forRoot({ auth: authReducer }), // Configure the store with reducers here
-      EffectsModule.forRoot([AuthEffects]), // Include the AuthEffects in the root effects module
-      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) // Optional for debugging
+      StoreModule.forRoot({ auth: authReducer }),
+      EffectsModule.forRoot([AuthEffects]),
+      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }) 
     ),
   ]
 };
