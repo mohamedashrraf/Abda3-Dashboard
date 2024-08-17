@@ -10,5 +10,8 @@ export const routes: Routes = [
     path: 'users',
     loadChildren: () => import('./users/users.routes').then(m => m.usersRoutes)
   },
-  // { path: '**', redirectTo: 'auth' }
+  {
+    path: '**',
+    loadComponent: () => import('./shared/notfound/notfound.component').then(m => m.NotfoundComponent),
+  },
 ];
